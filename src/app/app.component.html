@@ -1,0 +1,28 @@
+<div id="pokedex-container">
+<h1 class="pokedex-title">Pokedex</h1>
+
+<div class="pokedex">
+  <div class="pokedex-pokemon" *ngFor="let p of pokemon">
+    <div class="pokedex-pokemon-id">
+      #{{ p.id}}
+    </div>
+    <div class="pokemon-icon-container">
+      <img class="pokemon-icon pokedex-pokemon-sprite" src="{{ p.sprite }}.png">
+    </div>
+    <div class="pokedex-pokemon-name">
+      {{ p.name | capitalize }}
+    </div>
+  </div>
+</div>
+
+<button class="load-button" (click)="loadMore()" [disabled]="isLoading">
+  <span *ngIf="!error">
+    <span *ngIf="isLoading">Loading...</span>
+    <span *ngIf="!isLoading">Load more</span>
+  </span>
+  <span *ngIf="error">
+    Loading failed
+  </span>
+</button>
+
+</div>
